@@ -46,10 +46,10 @@ class Game {
         return cubes
     }
 
-    public drawCube(player:Player): void {
-        const allCubes = this.getAllCubes()
-        player.setDrawedCube( allCubes[ this.getRandomInt(1,104)] )
-    }
+    //public drawCube(player:Player): void {
+    //    const allCubes = this.getAllCubes()
+    //    player.setDrawedCube( allCubes[ this.getRandomInt(1,104)] )
+    //}
 
     public getAllCubes(): Cube[] {
         return this.cubes
@@ -63,22 +63,15 @@ class Game {
         return this.players.length
     }
 
-    private getRandomInt(min:number, max:number): number {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+
 
     public setFirstPlayer(): void {
-        let playersList:Player[] = []
-
         this.players.forEach(player => {
-            this.drawCube(player)
-            playersList.push(player)
+            player.drawCube(this.cubes)
         })
 
-        playersList.sort( this.compareDrawedCubes )
-        this.firstPlayer = playersList[playersList.length - 1]
+        this.players.sort( this.compareDrawedCubes )
+        this.firstPlayer = this.players[this.players.length - 1]
     }
 
     public getFirstPlayer(): Player {

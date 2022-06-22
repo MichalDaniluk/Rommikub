@@ -1,14 +1,12 @@
 import Cube from './Cube'
-import Game from './Game'
+import { getRandomInt } from '../components/utils'
 
 class Player {
     private name:string
     private drawedCube: Cube
-    private game: Game
 
     public constructor(name:string) {
         this.name = name
-		this.game = Object.create(null)
         this.drawedCube = Object.create(null)
     }
 
@@ -27,6 +25,10 @@ class Player {
     public getDrawedCubeNumber(): number {
         return this.drawedCube.getNumber()
     }
+
+	public drawCube(cubes:Cube[]): Cube {
+        return cubes[ getRandomInt(1,104)]
+	}
 }
 
 export default Player
