@@ -1,5 +1,8 @@
 import React from 'react';
+import Player from '../src/models/Player'
+import Cube, { colors } from '../src/models/Cube'
 
-test('two plus two is four', () => {
-	expect(2 + 2).toBe(4);
+test('should create new Player', () => {
+	const player = new Player('Test player name')
+	expect( player.getName() ).toBe('Test player name');
 });

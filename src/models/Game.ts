@@ -4,17 +4,25 @@ import Groups from './Groups'
 import Cube, { colors } from './Cube'
 
 class Game {
-    private players: Player[] = []
-    private series: Series[] = []
-    private groups: Groups[] = []
-    private firstPlayer: Player = new Player('computer', new Cube(colors.black, 1, false))
-    private cubes: Cube[] = []
+    private players: Player[]
+    private series: Series[]
+    private groups: Groups[]
+    private firstPlayer: Player
+    private cubes: Cube[]
 
-    public setGame( players:Player[] ): void {
+	public constructor() {
+		this.players = []
+		this.series = []
+		this.groups = []
+		this.cubes = []
+		this.firstPlayer = Object.create(null)
+	}
+
+    public addPlayers( players:Player[] ): void {
         this.players = players
     }
 
-    public setCubes(): void {
+    public createCubes(): void {
         this.cubes = this.generateColorCubes(colors.red)
         .concat(this.generateColorCubes(colors.blue))
         .concat(this.cubes.concat( this.generateColorCubes(colors.orange) ))
@@ -22,6 +30,14 @@ class Game {
         .concat( new Cube(colors.black, 0, true), new Cube(colors.black, 0, true) )
         .concat( new Cube(colors.red, 0, true), new Cube(colors.red, 0, true) )
     }
+
+	public getPlayers(): Player[] {
+		return this.players
+	}
+
+	public HowManyPlayers(): number {
+		return this.getPlayers().length
+	}
 
     public generateColorCubes(color:colors): Cube[] {
         let cubes: Cube[] = []
@@ -38,6 +54,10 @@ class Game {
     public getAllCubes(): Cube[] {
         return this.cubes
     }
+
+	public howManyCubes(): number {
+		return this.cubes.length
+	}
 
     public howManyPlayes(): number {
         return this.players.length

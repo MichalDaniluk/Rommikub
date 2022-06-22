@@ -4,16 +4,21 @@ import Game from './Game'
 class Player {
     private name:string
     private drawedCube: Cube
-    private game: Game = new Game()
+    private game: Game
 
-    public constructor(name:string, drawedCube:Cube) {
+    public constructor(name:string) {
         this.name = name
-        this.drawedCube = drawedCube
+		this.game = Object.create(null)
+        this.drawedCube = Object.create(null)
     }
 
     public setDrawedCube(drawedCube:Cube) {
         this.drawedCube = drawedCube
     }
+
+	public getName(): string {
+		return this.name
+	}
 
     public getDrawedCube(): Cube {
         return this.drawedCube
