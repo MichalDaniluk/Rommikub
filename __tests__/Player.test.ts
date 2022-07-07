@@ -23,3 +23,4 @@ test('should add new cube to his board', () => {
 	player.addCubeToBoard( cube)
 	expect( player.isCubeExistsInBoard(cube) ).toBe(true);
 });
+
