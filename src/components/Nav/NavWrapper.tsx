@@ -2,9 +2,11 @@ import React from 'react'
 
 function NavWrapper() {
   return (
-	<ul>
-		<li>Logo</li>
+	<nav>
+	<ul className="logo">
+		<li>Rummikub</li>
 	</ul>
+	</nav>
   )
 }
 

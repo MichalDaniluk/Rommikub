@@ -7,14 +7,47 @@ body {
 	background-color: lightgrey;
 }
 
+main {
+	display:flex;
+}
+
 nav {
+	height: 5vh;
 	background-color:grey;
 	color:white;
 	font-weight: bold;
 	padding:1rem;
+	box-shadow: .5rem .5rem .5rem #eee;
 
 	ul {
 		list-style: none;
+	}
+
+	.logo {
+		color:white;
+		position: relative;
+		display:block;
+
+	}
+
+	.logo::after {
+		position:absolute;
+		left:0;
+		bottom:-.2rem;
+		content: "";
+		display:block;
+		width:4rem;
+		height:2px;
+		background-color:yellow;
+		transition-duration: .5s;
+	}
+
+	.logo:hover::after {
+		transform: translateX(2rem);
+	}
+
+	.logo:hover:first-child::first-letter {
+		color:yellow;
 	}
 }
 
@@ -22,19 +55,207 @@ nav {
 	width:10%;
 	background-color:white;
 	padding:1rem;
-	min-height: 100vh;
+	min-height: 85vh;
+	box-shadow: .5rem .5rem .5rem #ddd;
 
 	.players__avatars {
 		margin:1rem;
 
 		.players__avatar {
+			display:flex;
+			flex-direction: column;
+			align-items: center;
 			border:1px solid lightgrey;
 			padding:1rem;
-			margin-bottom:.5rem;
+			margin-bottom:1.5rem;
+			border-radius: 5%;
+			border-top:#fff;
+			border-left:#fff;
+			box-shadow: .5rem .5rem .5rem #eee;
+			background: #ddd;
+			background:linear-gradient(#ddd, #eee);
+			transition-duration: .5s;
 		}
+
+		.players__avatar:hover {
+			transform:scale(.8)
+		}
+
+		.players__avatar--image {
+			width:100%;
+			height:100%;
+			border-radius: 50%;
+		}
+
+		.players__avatar--score {
+			color:red;
+			font-weight: bold;
+		}
+	}
+
+}
+
+.game__board {
+	position: relative;
+	width:90%;
+
+
+	.game__board--userboard {
+		display:flex;
+		position: absolute;
+		left:50%;
+		bottom:0;
+		transform: translate(-50%, -10%);
+		height:8rem;
+		width:80%;
+		border-bottom:4px solid #333;
+		background-color:grey;
+	}
+
+	.cube {
+		position: relative;
+		display:flex;
+		flex-direction: column;
+		align-items: center;
+		margin:.2rem;
+		border:1px solid grey;
+		box-shadow: .2rem .2rem .2rem #666;
+		border-radius: 10%;
+		height:6rem;
+		width:4.5rem;
+		background-color:#fff;
+		cursor:pointer;
+	}
+
+	.cube--number {
+		display:flex;
+		align-items:center;
+		justify-content: center;
+		height:2rem;
+		width:2rem;
+		color:red;
+		margin-top:.5rem;
+		border-radius:50%;
+		background-color:#fff;
+		padding:.5rem;
+		text-align: center;
+		font-weight: bold;
+		box-shadow: 0 -.1rem .5rem #ddd;
+	}
+
+	.cube--number {
+
+	}
+
+	.cube--number::after {
+
+	}
+
+	.cube--logo {
+		position: absolute;
+		bottom:.5rem;
+		text-transform: uppercase;
+		font-size: .5rem;
+		font-weight: bold;
+		color:grey;
 	}
 
 
 }
 
+.coffee {
+	position:relative;
+	width:50rem;
+	height:80%;
+	background:green;
 
+	border:10px solid lightgreen;
+	background: linear-gradient(to bottom, green, lightgreen);
+
+	.coffee__cup {
+		position:absolute;
+		left:50%;
+		top:55%;
+		transform:translate(-50%,-50%);
+		width:25%;
+		height: 30%;
+		background: none;
+		border-radius:0 0 30% 30%;
+		border:2rem solid lightgreen;
+		border-top:transparent;
+	}
+
+	.coffee__cup--handle {
+		position:absolute;
+		left:64%;
+		top:45%;
+		width:2rem;
+		height: 1rem;
+		background: none;
+		border-radius:0 0 30% 30%;
+		border:2rem solid lightgreen;
+		border-top:transparent;
+		transform:rotate(-90deg);
+	}
+
+	.coffee__cup--stand {
+		position:absolute;
+		left:50%;
+		top:75%;
+		transform:translate(-50%,-50%);
+		width:30%;
+		height: 1%;
+		background: none;
+		border-radius:0 0 30% 30%;
+		border:2rem solid lightgreen;
+		border-top:transparent;
+	}
+
+	.coffee__seeds {
+		display:flex;
+		flex-direction:column;
+		position:absolute;
+		right:0;
+		width:20%;
+		height:100%;
+
+		.coffee__seed {
+			position:relative;
+			width:30%;
+			height:20%;
+			//margin-top:5%;
+			//margin-right:10%;
+			border-radius:50%;
+			background:lightgreen;
+			transform:rotate(30deg);
+		}
+
+		.coffee__seed--center {
+			position:absolute;
+			left:50%;
+			top:50%;
+			transform:translate(-50%,-50%);
+			width:100%;
+			height:5%;
+			background:green;
+			//transform:rotate(45deg);
+		}
+
+		//.coffee__seed--down {
+		//	position:absolute;
+		//	top:23px;
+		//	left:28px;
+		//	width:40px;
+		//	height:15px;
+		//	border-radius:0 0 30% 30%;
+		//	background:lightgreen;
+		//	margin-top:2px;
+		//	//transform:rotate(45deg);
+		//}
+
+		.right {
+			margin-left:40px;
+		}
+	}
+
+}
